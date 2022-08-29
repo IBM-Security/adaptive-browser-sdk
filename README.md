@@ -14,7 +14,7 @@ The purpose of the Browser SDK is to enable a developer to initiate a collection
 After setting up the Proxy SDK on your server, you can install the IBM Security Verify Adaptive Browser SDK by cloning this repository, or installing from [npm](https://www.npmjs.com/package/@ibm-verify/adaptive-browser).
 
 ```bash
-npm install adaptive-browser-sdk
+npm install @ibm-verify/adaptive-browser
 ```
 
 ## Overview

@@ -10,7 +10,9 @@
   },
   "keywords": [],
   "author": "IBM Security Verify <verify@au1.ibm.com>",
-  "contributors": ["Carsten Hagemann <chageman@au1.ibm.com>"],
+  "contributors": [
+    "Carsten Hagemann <chageman@au1.ibm.com>"
+  ],
   "bugs": "https://github.com/ibm-security-verify/verify-sdk-javascript",
   "repository": {
     "type": "git",
@@ -25,6 +27,8 @@
     "browserify": "^17.0.0"
   },
   "dependencies": {
+    "@ibm-verify/adaptive-browser": "^1.2.0",
+    "adaptive-browser-sdk": "^1.2.0",
     "core-js": "^3.22.5",
     "regenerator": "^0.14.7"
   }
