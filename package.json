@@ -1,6 +1,6 @@
 {
   "name": "adaptive-browser-sdk",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "",
   "main": "adaptive-v1.js",
   "scripts": {
@@ -9,20 +9,25 @@
     "build": "./node_modules/browserify/bin/cmd.js lib/adaptive-v1.js -o dist/adaptive-v1.js -t [ babelify --presets [ @babel/preset-env ] ] && node_modules/.bin/babel-minify dist/adaptive-v1.js -o dist/adaptive-v1.min.js"
   },
   "keywords": [],
-  "author": "Adam Dorogi-Kaposi <adam.dorogi-kaposi@ibm.com>",
+  "author": "IBM Security Verify <verify@au1.ibm.com>",
+  "contributors": [
+    "Carsten Hagemann <chageman@au1.ibm.com>"
+  ],
+  "bugs": "https://github.com/IBM-Security/adaptive-browser-sdk",
   "repository": {
     "type": "git",
     "url": "https://github.com/IBM-Security/adaptive-browser-sdk"
   },
   "license": "MIT",
   "devDependencies": {
-    "@babel/preset-env": "^7.12.1",
-    "babel-minify": "^0.5.1",
+    "@babel/core": "^7.17.12",
+    "@babel/preset-env": "^7.17.12",
+    "babel-minify": "^0.5.2",
     "babelify": "^10.0.0",
     "browserify": "^17.0.0"
   },
   "dependencies": {
-    "core-js": "^3.6.5",
+    "core-js": "^3.22.5",
     "regenerator": "^0.14.7"
   }
 }
