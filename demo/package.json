@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "adaptive-browser-sdk": "^1.2.0",
+    "@ibm-verify/adaptive-browser": "^1.2.0",
     "express": "^4.17.1"
   }
 }
