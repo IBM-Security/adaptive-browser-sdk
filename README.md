@@ -78,7 +78,7 @@ Note; it is [`startAdaptiveV1(host, snippetID)`](#start-the-collection-process) 
 
 ```
 MIT License
-Copyright 2020 - IBM Corp.
+Copyright (c) 2019, 2022 IBM
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
