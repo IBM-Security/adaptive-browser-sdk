@@ -1,6 +1,6 @@
 ![Type](https://img.shields.io/badge/Type-JavaScript-blue.svg)
-![npm](https://img.shields.io/npm/v/adaptive-browser-sdk.svg?style=plastic)
-![NPM](https://img.shields.io/npm/l/adaptive-browser-sdk.svg?colorB=blue&style=plastic)
+[![npm](https://img.shields.io/badge/npm-adaptive_browser_sdk-blue)](https://www.npmjs.com/package/@ibm-verify/adaptive-browser)
+![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
 
 # IBM Security Verify Adaptive Browser SDK
 
