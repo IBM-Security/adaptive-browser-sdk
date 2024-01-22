@@ -1,7 +1,7 @@
 {
-  "name": "@ibm-verify/adaptive-browser",
+  "name": "adaptive-browser-sdk",
   "version": "1.4.0",
-  "description": "![Type](https://img.shields.io/badge/Type-JavaScript-blue.svg) ![npm](https://img.shields.io/npm/v/adaptive-browser-sdk.svg?style=plastic) ![NPM](https://img.shields.io/npm/l/adaptive-browser-sdk.svg?colorB=blue&style=plastic)",
+  "description": "",
   "main": "adaptive-v1.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -13,27 +13,21 @@
   "contributors": [
     "Carsten Hagemann <chageman@au1.ibm.com>"
   ],
-  "bugs": {
-    "url": "https://github.com/IBM-Security/adaptive-browser-sdk"
-  },
+  "bugs": "https://github.ibm.com/IBM-Verify/adaptive-browser-sdk",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/IBM-Security/adaptive-browser-sdk.git"
+    "url": "https://github.ibm.com/IBM-Verify/adaptive-browser-sdk"
   },
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.17.12",
     "@babel/preset-env": "^7.17.12",
-    "babel-minify": "^0.2.0",
+    "babel-minify": "^0.5.2",
     "babelify": "^10.0.0",
     "browserify": "^17.0.0"
   },
   "dependencies": {
-    "core-js": "^3.25.0",
+    "core-js": "^3.22.5",
     "regenerator": "^0.14.7"
-  },
-  "homepage": "https://github.com/IBM-Security/adaptive-browser-sdk#readme",
-  "directories": {
-    "lib": "lib"
   }
 }
