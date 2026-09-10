@@ -51,9 +51,9 @@ npm login --registry=https://registry.npmjs.org --scope=@ibm-verify
 
 Choose the appropriate version bump based on semantic versioning:
 
-- **Patch** (1.7.0 → 1.7.1): Bug fixes, security patches
-- **Minor** (1.7.0 → 1.8.0): New features, backward compatible
-- **Major** (1.7.0 → 2.0.0): Breaking changes
+- **Patch** (1.7.4 → 1.7.5): Bug fixes, security patches
+- **Minor** (1.7.4 → 1.8.0): New features, backward compatible
+- **Major** (1.7.4 → 2.0.0): Breaking changes
 
 ```bash
 # For a patch release (recommended for security fixes)
@@ -91,9 +91,9 @@ Create a test installation:
 # Pack the package
 npm pack
 
-# This creates a .tgz file like ibm-verify-adaptive-browser-1.7.1.tgz
+# This creates a .tgz file like ibm-verify-adaptive-browser-1.7.5.tgz
 # Test it in another project:
-# npm install /path/to/ibm-verify-adaptive-browser-1.7.1.tgz
+# npm install /path/to/ibm-verify-adaptive-browser-1.7.5.tgz
 ```
 
 ### 6. Publish to npm
@@ -128,26 +128,25 @@ git push origin --tags
 ### 8. Create a GitHub Release (Optional but Recommended)
 
 ```bash
-gh release create v1.7.1 \
-  --title "v1.7.1 - Security Fixes" \
-  --notes "Security vulnerability fixes for elliptic, bn.js, yargs-parser, and brace-expansion"
+gh release create v1.7.5 \
+  --title "v1.7.5 - Security Fixes" \
+  --notes "Security vulnerability fixes"
 ```
 
 Or create it manually on GitHub:
-1. Go to https://github.com/IBM-Verify/adaptive-browser-sdk/releases
+1. Go to https://github.com/ibm-verify/adaptive-browser-sdk/releases
 2. Click "Draft a new release"
 3. Select the tag (e.g., v1.7.1)
 4. Add release notes
 5. Publish release
 
-## Publishing for Security Fixes (Current Scenario)
+## Publishing for Security Fixes
 
-Since we've just fixed security vulnerabilities, here's the recommended workflow:
+Since security vulnerabilities have been addressed via Dependabot PRs, here's the recommended workflow:
 
-### 1. Wait for PR Approval and Merge
+### 1. Ensure You're on the Latest Main
 
 ```bash
-# After PR #38 is approved and merged
 git checkout main
 git pull origin main
 ```
@@ -156,7 +155,7 @@ git pull origin main
 
 ```bash
 npm version patch -m "chore: bump version to %s for security fixes"
-# This will create the next patch version (e.g., 1.7.2)
+# This will create the next patch version (e.g., 1.7.5)
 ```
 
 ### 3. Build and Publish
@@ -170,22 +169,21 @@ git push origin main --tags
 ### 4. Create Release Notes
 
 ```bash
-gh release create v1.7.1 \
-  --title "v1.7.1 - Security Vulnerability Fixes" \
+gh release create v1.7.5 \
+  --title "v1.7.5 - Security Vulnerability Fixes" \
   --notes "## Security Fixes
 
-- Fixed bn.js infinite loop vulnerability (GHSA-378v-28hj-76wf)
-- Fixed yargs-parser prototype pollution (GHSA-p9pc-299p-vxgp)
-- Fixed brace-expansion process hang (GHSA-f886-m6hf-6m8v)
-- Mitigated elliptic cryptographic primitive issue (GHSA-848j-6mx2-7j84)
+- Fixed brace-expansion DoS vulnerabilities (GHSA-3jxr-9vmj-r5cp, GHSA-mh99-v99m-4gvg, GHSA-rgw5-rvv9-x895)
+- Fixed browserslist OOM + prototype write (GHSA-c83g-rgw3-j3cx, GHSA-73wf-gq98-2v4g)
+- Fixed shell-quote quadratic DoS (GHSA-395f-4hp3-45gv)
+- Fixed baseline-browser-mapping process.exit DoS (CVE-2026-45819)
+- Updated core-js to 3.50.0, qs in demo to 6.16.0, body-parser in demo to 2.3.0
 
-## Changes
-- Updated browserify to 17.0.1
-- Updated babel-minify to 0.6.0-alpha.9
-- Added npm overrides for security patches
-- Added comprehensive security documentation
+## Known Remaining Issues
+- elliptic (GHSA-848j-6mx2-7j84): Low severity, awaiting upstream fix
+- qs via browserify → url: Moderate, build-time only, not in distributed bundle
 
-See PR #38 for full details."
+See SECURITY.md for full details."
 ```
 
 ## Troubleshooting

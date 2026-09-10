@@ -14,14 +14,29 @@
 **Status**: ✅ Resolved
 **Fix**: Updated babel-minify to 0.6.0-alpha.9 which uses secure yargs-parser version
 
-#### 3. brace-expansion Process Hang (GHSA-f886-m6hf-6m8v) - FIXED
+#### 3. brace-expansion DoS (GHSA-3jxr-9vmj-r5cp, GHSA-mh99-v99m-4gvg, GHSA-rgw5-rvv9-x895) - FIXED
+**Severity**: High
+**Status**: ✅ Resolved
+**Fix**: Updated brace-expansion to 1.1.18 in root (PR #51) and to 5.0.9 in /demo (PR #52)
+
+#### 4. browserslist OOM + Prototype Write (GHSA-c83g-rgw3-j3cx, GHSA-73wf-gq98-2v4g) - FIXED
+**Severity**: High
+**Status**: ✅ Resolved
+**Fix**: Updated browserslist to 4.28.9 in root (PR #56) and 4.28.8 in /demo (PR #55)
+
+#### 5. shell-quote Quadratic DoS (GHSA-395f-4hp3-45gv) - FIXED
+**Severity**: High
+**Status**: ✅ Resolved
+**Fix**: Updated shell-quote to 1.10.0 (PR #50)
+
+#### 6. baseline-browser-mapping process.exit DoS (GHSA-w5vr-8v7q-w6rv / CVE-2026-45819) - FIXED
 **Severity**: Moderate
-**Status**: ✅ Resolved (in demo directory)
-**Fix**: Updated @ibm-verify/adaptive-browser to 1.7.0 and added overrides
+**Status**: ✅ Resolved
+**Fix**: Updated baseline-browser-mapping to 2.11.21 (PR #57)
 
 ### ⚠️ Known Vulnerabilities (Awaiting Upstream Fix)
 
-#### Elliptic Cryptographic Primitive Issue (GHSA-848j-6mx2-7j84)
+#### 1. Elliptic Cryptographic Primitive Issue (GHSA-848j-6mx2-7j84)
 
 **Status**: Awaiting upstream fix
 **Severity**: Low
@@ -38,7 +53,7 @@ The elliptic package uses a cryptographic primitive with a risky implementation.
 - ✅ Monitoring the elliptic repository for security patches
 
 ##### Next Steps
-As of April 2026, there is no patched version of elliptic available in the npm registry. The latest version is 6.6.1, which contains the vulnerability. Once a patched version (6.6.2 or later) is released, run:
+There is no patched version of elliptic available in the npm registry as of the latest audit. Once a patched version (6.6.2 or later) is released, run:
 
 ```bash
 npm install
@@ -52,6 +67,24 @@ This is classified as a **LOW severity** vulnerability. The risk is minimal for 
 2. The cryptographic functions are used by browserify's build-time bundling process
 3. No direct cryptographic operations are exposed to end users
 
+#### 2. qs Array-limit Bypass + DoS (GHSA-x5fp-wj9c-mxmx, GHSA-4mjr-xmp4-gh2g)
+
+**Status**: Awaiting upstream fix in `browserify`
+**Severity**: Moderate
+**Published**: 2025–2026
+**Affected Package**: `qs@6.15.2` (transitive dependency via `browserify` → `url`)
+
+##### Description
+The qs package has two vulnerabilities: an array-limit bypass via bracket-key comma parsing, and a denial of service via an attacker-controlled `isBuffer` check. This is a transitive dependency introduced through:
+- `browserify@17.0.1` → `url@0.11.4` → `qs@6.15.2`
+
+##### Current Mitigation
+- ✅ Monitoring the `browserify` and `url` packages for updates that pull in qs >= 6.16.0
+- ✅ The vulnerability is in a build-time bundling tool, not in the distributed browser SDK
+
+##### Risk Assessment
+This is classified as **MODERATE severity** but has minimal real-world impact for this SDK as `qs` is used by `browserify`'s internal `url` module at build time only — it is not included in the published browser bundle.
+
 ## Package Overrides Configuration
 
 The following npm overrides are configured in `package.json` to ensure secure versions:
@@ -60,7 +93,8 @@ The following npm overrides are configured in `package.json` to ensure secure ve
 "overrides": {
   "elliptic": ">=6.6.1",
   "bn.js": "^4.12.3 || ^5.2.3",
-  "yargs-parser": "~21.1.1"
+  "yargs-parser": "~21.1.1",
+  "@babel/helpers": ">=7.29.0"
 }
 ```
 
