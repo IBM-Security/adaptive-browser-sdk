@@ -14,7 +14,7 @@
     "@babel/helpers": ">=7.29.0"
   },
   "dependencies": {
-    "@ibm-verify/adaptive-browser": "^1.7.2",
+    "@ibm-verify/adaptive-browser": "^1.7.4",
     "express": "^5.2.1"
   }
 }
