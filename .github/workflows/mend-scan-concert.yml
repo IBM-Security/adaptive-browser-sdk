@@ -8,7 +8,7 @@ on:
 env: 
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   WS_APIKEY: ${{ secrets.WS_APIKEY }}
-  WS_USERKEY: ${{ secrets.WS_USERKEY }}
+  WS_USERKEY: ${{ secrets.WS_USERKEY_CONCERT }}
   WS_PRODUCTNAME: ${{ secrets.WS_PRODUCTNAME_CONCERT }}
   WS_PROJECTNAME: ${{ secrets.WS_PROJECTNAME }}
   WS_WSS_URL: ${{ secrets.WS_WSS_URL }}
